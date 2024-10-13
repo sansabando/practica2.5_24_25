@@ -107,3 +107,24 @@ function calculate() {
     
     updateDynamicTitle(currentValue);
 }
+
+//Validate function
+
+function validate(input) {
+    const invalidChars = /[!"#$%&)'?¡¿]/; 
+
+    if (input.includes(',') || input.includes('-')) {
+        return true; 
+    }
+
+    for (let i = 0; i < input.length; i++) {
+        if (invalidChars.test(input[i])) {
+            showError("Error: Invalid characters detected! You cannot use: !\"#$%&)'?¡¿");
+            return false;
+        }
+    }
+
+    const validNumberFormat = /^-?\d+(\.\d+)?(,-?\d+(\.\d+)?)*$/;
+
+    return validNumberFormat.test(input);
+}
