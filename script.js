@@ -197,3 +197,19 @@ function fact() {
 
     updateDisplay();
 }
+
+
+function exponentiate() {
+    const base = parseFloat(document.getElementById("display").value);
+    const exponent = parseFloat(document.getElementById("powerInput").value);
+
+    if (isNaN(base) || isNaN(exponent)) {
+        showError("Error: Invalid base or exponent.");
+        return;
+    }
+
+    currentValue = Math.pow(base, exponent);
+    logOperation(`${base}^${exponent} = ${currentValue}`);
+
+    updateDisplay();
+}
