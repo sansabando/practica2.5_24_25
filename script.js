@@ -376,3 +376,26 @@ function downloadErrorLog() {
     link.click(); 
     document.body.removeChild(link); 
 }
+
+
+function logOperation(operation) {
+    const timestamp = new Date().toLocaleString(); 
+    operationLog.push(`${timestamp}: ${operation}`); 
+}
+
+function downloadOperationLog() {
+    if (operationLog.length === 0) {
+        showError("No operations to download."); 
+        return;
+    }
+
+    const csvContent = "data:text/csv;charset=utf-8," + operationLog.join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "operation_log.csv");
+    document.body.appendChild(link);
+
+    link.click(); 
+    document.body.removeChild(link); 
+}    
