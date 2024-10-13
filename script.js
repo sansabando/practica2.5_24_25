@@ -255,3 +255,24 @@ function sortCSV() {
 
     updateDisplay();
 }
+
+
+function reverseCSV() {
+    const inputValue = document.getElementById("display").value.trim();
+    if (!validate(inputValue)) {
+        showError("Error: Invalid input. Please enter a valid CSV format.");
+        return;
+    }
+
+    csvValues = inputValue.split(',').map(Number);
+    if (csvValues.some(isNaN)) {
+        showError("Error: Invalid numbers in the list.");
+        return;
+    }
+
+    csvValues.reverse();
+    currentValue = csvValues.join(',');
+    logOperation(`Reverse CSV: ${inputValue} = ${currentValue}`);
+
+    updateDisplay();
+}
