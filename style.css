@@ -19,3 +19,12 @@ body {
     background-size: cover; 
     background-position: center; 
 }
+
+
+.titulo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 400px; 
+    z-index: 1; 
+}
