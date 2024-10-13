@@ -276,3 +276,25 @@ function reverseCSV() {
 
     updateDisplay();
 }
+
+
+function averageCSV() {
+    const inputValue = document.getElementById("display").value.trim();
+    if (!validate(inputValue)) {
+        showError("Error: Invalid input. Please enter a valid CSV format.");
+        return;
+    }
+
+    csvValues = inputValue.split(',').map(Number);
+    if (csvValues.some(isNaN)) {
+        showError("Error: Invalid numbers in the list.");
+        return;
+    }
+
+    const sum = csvValues.reduce((acc, val) => acc + val, 0);
+    currentValue = sum / csvValues.length;
+    logOperation(`Average of CSV: ${inputValue} = ${currentValue}`);
+
+    updateDisplay();
+}
+
