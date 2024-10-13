@@ -128,3 +128,21 @@ function validate(input) {
 
     return validNumberFormat.test(input);
 }
+
+
+//Error function
+function showError(message) {
+    alert(message); 
+
+    
+    const timestamp = new Date().toLocaleString(); 
+    errorLog.push(`${timestamp}: ${message}`);
+}
+
+
+document.getElementById("display").addEventListener("input", function() {
+    const inputValue = document.getElementById("display").value.trim();
+    if (!validate(inputValue)) {
+        showError("Error: Invalid input. Only numbers, commas, negatives and decimals are allowed. ");
+    }
+});
