@@ -49,3 +49,12 @@ body {
     justify-content: flex-start; 
     width: 320px; 
 }
+
+.operation-history, .error-history {
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    height: 200px; 
+    overflow-y: auto; 
+}
