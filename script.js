@@ -43,3 +43,67 @@ function updateDynamicTitle(value) {
         titleElement.innerHTML = `${operationText}<br>${resultText}`; 
     }
 }
+
+
+function setOperation(op) {
+    const displayValue = document.getElementById("display").value.trim();
+    
+    if (!validate(displayValue)) {
+        showError("Error: Invalid input. Please enter a valid number or CSV format. ");
+        return;
+    }
+
+    if (firstValue === null) {
+        firstValue = parseFloat(displayValue);
+    } else {
+        firstValue = currentValue;
+    }
+    
+    operator = op;
+    document.getElementById("display").value = ''; 
+}
+
+
+function calculate() {
+    const secondValue = parseFloat(document.getElementById("display").value);
+
+    if (isNaN(firstValue) || isNaN(secondValue)) {
+        showError("Error: Invalid numbers entered.");
+        return;
+    }
+
+    let operation = ''; 
+
+    switch (operator) {
+        case 'add':
+            currentValue = firstValue + secondValue;
+            operation = `${firstValue} + ${secondValue} = ${currentValue}`;
+            break;
+        case 'subtract':
+            currentValue = firstValue - secondValue;
+            operation = `${firstValue} - ${secondValue} = ${currentValue}`;
+            break;
+        case 'multiply':
+            currentValue = firstValue * secondValue;
+            operation = `${firstValue} * ${secondValue} = ${currentValue}`;
+            break;
+        case 'division':
+            if (secondValue === 0) {
+                showError("Error: Division by 0");
+                return;
+            }
+            currentValue = firstValue / secondValue;
+            operation = `${firstValue} / ${secondValue} = ${currentValue}`;
+            break;
+        default:
+            showError("Error: No operation selected.");
+            return;
+    }
+
+    logOperation(operation); 
+    firstValue = currentValue;
+    updateDisplay();
+    document.getElementById("display").value = currentValue;
+    
+    updateDynamicTitle(currentValue);
+}
