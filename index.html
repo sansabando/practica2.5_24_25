@@ -1,0 +1,21 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="images/titulo.barbie.png" class="titulo" alt="Título Barbie Math">
+
+        <div class="calculator">
+            <h2 id="info" class="big" title="Info about the number">Information about the number</h2>
+            <input type="text" class="display" id="display" placeholder="Enter a number" oninput="validateInput()" />
+
+            <div id="errorMessage" class="error-popup" style="display: none;">
+                Error! Introduce un valor válido!
+            </div>
