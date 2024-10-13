@@ -147,6 +147,8 @@ document.getElementById("display").addEventListener("input", function() {
     }
 });
 
+
+//Functions
 function squareRoot() {
     const displayValue = parseFloat(document.getElementById("display").value);
 
@@ -165,3 +167,15 @@ function squareRoot() {
     updateDisplay();
 }
 
+
+function mod() {
+    let number = parseFloat(document.getElementById("display").value);
+    if (isNaN(number)) {
+        showError("Error: Invalid input");
+        return;
+    }
+    currentValue = Math.abs(number);
+    logOperation(`Mod of ${number} = ${currentValue}`);
+
+    updateDisplay();
+}
