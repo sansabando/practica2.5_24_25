@@ -67,3 +67,19 @@ body {
 .error-history {
     background-color: #FAD7A0; 
 }
+
+
+h2 {
+    color: black; 
+    margin-bottom: 10px; 
+}
+
+.display {
+    width: 100%; 
+    padding: 10px; 
+    font-size: 2em; 
+    text-align: center; 
+    border: none; 
+    background-color: #f2ecec; 
+    margin-bottom: 10px; 
+}
