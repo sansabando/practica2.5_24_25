@@ -146,3 +146,22 @@ document.getElementById("display").addEventListener("input", function() {
         showError("Error: Invalid input. Only numbers, commas, negatives and decimals are allowed. ");
     }
 });
+
+function squareRoot() {
+    const displayValue = parseFloat(document.getElementById("display").value);
+
+    if (isNaN(displayValue)) {
+        showError("Error: Invalid input. Please enter a valid number.");
+        return;
+    }
+
+    if (displayValue < 0) {
+        showError("Error: Cannot calculate the square root of a negative number.");
+        return;
+    }
+
+    currentValue = Math.sqrt(displayValue);
+    logOperation(`Square root of ${displayValue} = ${currentValue}`);
+    updateDisplay();
+}
+
