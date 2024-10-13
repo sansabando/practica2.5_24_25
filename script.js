@@ -213,3 +213,24 @@ function exponentiate() {
 
     updateDisplay();
 }
+
+//CSV OPERATIONS
+
+
+function sumCSV() {
+    const inputValue = document.getElementById("display").value.trim();
+    if (!validate(inputValue)) {
+        showError("Error: Invalid input. Please enter a valid CSV format.");
+        return;
+    }
+    const csvValues = inputValue.split(',').map(Number);
+    const invalidValues = csvValues.filter(isNaN);
+    if (invalidValues.length > 0) {
+        showError("Error: Invalid numbers in the list.");
+        return;
+    }
+    currentValue = csvValues.reduce((acc, val) => acc + val, 0);
+    logOperation(`Sum CSV: ${inputValue} = ${currentValue}`); 
+    updateDisplay();
+    
+}
