@@ -179,3 +179,21 @@ function mod() {
 
     updateDisplay();
 }
+
+
+function fact() {
+    let number = parseInt(document.getElementById("display").value);
+
+    if (isNaN(number) || number < 0) {
+        showError("Error: Invalid input");
+        return;
+    }
+    let result = 1;
+    for (let i = 1; i <= number; i++) {
+        result *= i;
+    }
+    currentValue = result;
+    logOperation(`Factorial of ${number} = ${currentValue}`);
+
+    updateDisplay();
+}
