@@ -298,3 +298,27 @@ function averageCSV() {
     updateDisplay();
 }
 
+
+
+function removeSpecificElement() {
+    const elementToRemove = parseFloat(document.getElementById("removeElementInput").value);
+    const inputValue = document.getElementById("display").value.trim();
+
+    if (isNaN(elementToRemove) || !validate(inputValue)) {
+        showError("Error: Invalid element or CSV input.");
+        return;
+    }
+
+    csvValues = inputValue.split(',').map(Number);
+    const index = csvValues.indexOf(elementToRemove);
+
+    if (index !== -1) {
+        csvValues.splice(index, 1);
+        currentValue = csvValues.join(',');
+        logOperation(`Removed specific element ${elementToRemove} from CSV: ${currentValue}`);
+    } else {
+        showError(`Error: Element ${elementToRemove} not found in CSV.`);
+    }
+
+    updateDisplay(); 
+}
