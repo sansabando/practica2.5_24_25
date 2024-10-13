@@ -322,3 +322,36 @@ function removeSpecificElement() {
 
     updateDisplay(); 
 }
+
+//RESET BUTTONS
+
+function reset() {
+    currentValue = 0; 
+    firstValue = null; 
+    operator = ''; 
+    csvValues = []; 
+
+    updateDisplay();
+    document.getElementById("display").value = ''; 
+    document.getElementById("display").placeholder = 'Enter a number'; 
+}
+
+
+function removeLast() {
+    let displayValue = document.getElementById("display").value;
+
+    if (displayValue.length > 0) {
+        displayValue = displayValue.slice(0, -1);
+        document.getElementById("display").value = displayValue;
+
+        if (displayValue === '') {
+            currentValue = ' '; 
+            document.getElementById("display").placeholder = 'Enter a number'; 
+        } else {
+            currentValue = parseFloat(displayValue); 
+        }
+
+        logOperation(`Remove last value: ${currentValue}`);
+        updateDisplay();
+    }
+}
