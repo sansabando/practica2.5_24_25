@@ -4,3 +4,18 @@
     flex-direction: row; 
     align-items: center;
 }
+
+
+body {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0; 
+    background-color: #f4f4f4; 
+    font-family: Arial, sans-serif; 
+    position: relative; 
+    background-image: url('images/fondo calculadora.png'); 
+    background-size: cover; 
+    background-position: center; 
+}
